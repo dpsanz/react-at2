@@ -1,24 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const Search = ({ movies }) => {
-    const [query, setQuery] = useState(''); // State to store search query
-    const [filteredMovies, setFilteredMovies] = useState(movies); // State to store filtered movies
+const MovieSearch = () => {
+    const [query, setQuery] = useState('');
+    const [movies, setMovies] = useState([]);
 
-    // Event handler to update query and filter movies
-    const handleSearch = (event) => {
-        const searchTerm = event.target.value.toLowerCase();
+    const handleSearch = async (event) => {
+        const searchTerm = event.target.value;
         setQuery(searchTerm);
 
-        // Filter movies based on search query
-        const filtered = movies.filter(movie =>
-            movie.title.toLowerCase().includes(searchTerm)
-        );
-        setFilteredMovies(filtered);
+        // Call the API to get filtered movies
+        if (searchTerm.length > 2) { // Start searching after 3 characters
+            const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=YOUR_API_KEY&query=${searchTerm}`);
+            const data = await response.json();
+            setMovies(data.results);
+        } else {
+            setMovies([]);
+        }
     };
 
     return (
         <div className="search-bar-container">
-            {/* Search Input */}
             <input
                 type="text"
                 value={query}
@@ -26,15 +27,12 @@ const Search = ({ movies }) => {
                 placeholder="Search for a movie..."
                 className="search-input"
             />
-
-            {/* Render Filtered Movies */}
             <div className="movie-list">
-                {filteredMovies.length > 0 ? (
-                    filteredMovies.map((movie) => (
+                {movies.length > 0 ? (
+                    movies.map((movie) => (
                         <div key={movie.id} className="movie-item">
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster_path} alt={movie.title} />
-                            {/* Include any other movie details you want to display */}
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                         </div>
                     ))
                 ) : (
@@ -45,4 +43,4 @@ const Search = ({ movies }) => {
     );
 };
 
-export default Search;
+export default MovieSearch;

@@ -1,5 +1,7 @@
 import Navbar from "../Navbar/Navbar";
+import Search from "../Search/Search";
 import { Link } from "react-router-dom";
+
 
 function Header() {
     return ( 
