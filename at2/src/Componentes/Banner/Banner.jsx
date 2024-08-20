@@ -30,7 +30,7 @@ function Banner({ id }) {
             <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center hover:bg-opacity-70 hover:tracking-widest transition-all ">
             <Link to={`filmes/${filme.id}`} className="text-rose-800 mt-1 hover:tracking-widest transition-all font-bold">
                 <div className="text-white text-center max-w-2xl p-4">
-                <p className="mt-2 text-xl text-rose-500 font-bold">Disponível agora no MUVI! </p>
+                <p className="mt-2 text-xl text-rose-500 font-bold">AGORA NOS CINEMAS</p>
                     <h1 className="text-2xl md:text-5xl font-bold">{filme.title}</h1>
                     <p className="mt-2 text-2xl">Lançamento: {filme.release_date} </p>
                     <p className="mt-2">Nota Média de Avaliações: {filme.vote_average} </p>

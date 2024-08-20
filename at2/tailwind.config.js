@@ -13,7 +13,7 @@ export default {
         
       },
       fontFamily: {
-        'body': ['Raleway', 'sans-serif'],
+        'body': ['Questrial', 'sans-serif'],
       },
     },
   },

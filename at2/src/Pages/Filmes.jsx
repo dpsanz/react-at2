@@ -49,14 +49,14 @@ function Filmes() {
         <>
             <main className="bg-black">
                 <div className='flex flex-col items-center'>
-                    <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-100 mb-8">FILMES POPULARES</h1>
+                    <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-100 mb-8">FILMES POPULARES</h1>
                     
                     <div className='w-full flex justify-center'>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 mx-10">
                             {filmesPopulares.slice(0,15).map(filme => (
                                 <div className="card-filme flex flex-col items-center" key={filme.id}>
                                     <Link to={`${filme.id}`} className="text-rose-800 mt-1 hover:tracking-widest transition-all font-bold">
-                                        <img className="self-center opacity-70 hover:opacity-100 transition-all" src={`${urlImg}${filme.poster_path}`} alt={filme.title} />
+                                        <img className="self-center opacity-70 hover:opacity-100 transition-all hover:border" src={`${urlImg}${filme.poster_path}`} alt={filme.title} />
                                     </Link>
                                     <h1 className="text-white text-center mt-2 font-bold text-2xl">{filme.title}</h1>
                                     <Link to={`${filme.id}`} className="text-rose-800 mt-1 hover:tracking-widest transition-all font-bold">Ver Mais</Link>
@@ -67,7 +67,7 @@ function Filmes() {
                 </div>
 
                 <div className='flex flex-col items-center'>
-                    <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-100 my-8">
+                    <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-100 my-8">
                         FILMES EM CARTAZ
                     </h1>
                     
@@ -76,7 +76,7 @@ function Filmes() {
                             {filmesEmCartaz.slice(0,8).map(filme => (
                                 <div className="card-filme flex flex-col items-center" key={filme.id}>
                                     <Link to={`${filme.id}`} className="text-rose-800 mt-1 hover:tracking-widest transition-all font-bold">
-                                        <img className="self-center opacity-70 hover:opacity-100 transition-all" src={`${urlImg}${filme.poster_path}`} alt={filme.title} />
+                                        <img className="self-center opacity-70 hover:opacity-100 transition-all hover:border" src={`${urlImg}${filme.poster_path}`} alt={filme.title} />
                                     </Link> 
                                     <h1 className="text-white text-center mt-2 font-bold text-2xl">{filme.title}</h1>
                                     <Link to={`${filme.id}`} className="text-rose-800 mt-1 hover:tracking-widest transition-all font-bold">Ver Mais</Link>
@@ -87,7 +87,7 @@ function Filmes() {
                 </div>
 
                 <div className='flex flex-col items-center mt-8'>
-                    <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-100 mb-8">
+                    <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-100 mb-8">
                         PRÓXIMOS LANÇAMENTOS
                     </h1>
                     
@@ -96,7 +96,7 @@ function Filmes() {
                             {proximosLancamentos.slice(0,15).map(filme => (
                                 <div className="card-filme flex flex-col items-center" key={filme.id}>
                                     <Link to={`${filme.id}`} className="text-rose-800 mt-1 hover:tracking-widest transition-all font-bold">
-                                        <img className="self-center opacity-70 hover:opacity-100 transition-all" src={`${urlImg}${filme.poster_path}`} alt={filme.title} />
+                                        <img className="self-center opacity-70 hover:opacity-100 transition-all hover:border" src={`${urlImg}${filme.poster_path}`} alt={filme.title} />
                                     </Link>
                                     <h1 className="text-white text-center mt-2 font-bold text-2xl">{filme.title}</h1>
                                     <Link to={`${filme.id}`} className="text-rose-800 mt-1 hover:tracking-widest transition-all font-bold">Ver Mais</Link>
