@@ -16,6 +16,9 @@ function Navbar() {
 
                 <li className={`${location.pathname === '/news' ? 'text-rose-500 hover:tracking-widest transition-all' : 'hover:tracking-widest transition-all'}`}>
                     <Link to = "news">NEWS</Link></li>
+
+                <li className={`${location.pathname === '/contato' ? 'text-rose-500 hover:tracking-widest transition-all' : 'hover:tracking-widest transition-all'}`}>
+                <Link to = "contato">CONTATO</Link></li>
             </ul>
         </nav>
      );
