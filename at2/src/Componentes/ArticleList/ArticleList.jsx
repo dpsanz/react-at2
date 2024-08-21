@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useMovieSearch} from '../stores/movieService.js'
+import {useMovieSearch } from "../../stores/movieService"
 import { Link } from "react-router-dom";
 
 const MovieList = () => {
@@ -18,39 +18,36 @@ const MovieList = () => {
           name="searchMovie"
           id="searchMovie"
           value={searchInput}
-          placeholder="Digite para buscar filmes"
+          placeholder="Pesquise Filmes"
           onChange={handleInputChange}
-          className="p-2 border border-gray-300 rounded"
+          className="text-center text-lg p-2 pl-7 pr-7 border border-white rounded bg-black hover:border-rose-700 focus:bg-white transition-all"
         />
       </div>
 
-      <div className="pb-20 sm:mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-[1600px]">
+      <div className="pb-5 sm:mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 mx-10">
         {movies.length > 0 ? (
           movies.map((movie, index) => (
             <div
               key={index}
               className="relative w-full h-80 md:h-96 bg-cover bg-center overflow-hidden mb-10"
               style={{
-                backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${movie.backdrop_path})`,
+                backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${movie.poster_path})`,
               }}
             >
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center hover:bg-opacity-70 hover:tracking-widest transition-all">
+              
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center bg-opacity-30 hover:bg-opacity-0 hover:border transition-all">
                 <Link
                   to={`filmes/${movie.id}`}
-                  className="text-rose-800 mt-1 hover:tracking-widest transition-all font-bold"
+                  className="text-rose-800 mt-1 hover:tracking-wide transition-all font-bold"
                 >
+                  
                   <div className="text-white text-center max-w-2xl p-4">
-                    <p className="mt-2 text-xl text-rose-500 font-bold">
-                      AGORA NOS CINEMAS
-                    </p>
-                    <h1 className="text-2xl md:text-5xl font-bold">
-                      {movie.title}
-                    </h1>
-                    <p className="mt-2 text-2xl">
-                      Lançamento: {movie.release_date}{" "}
+                  <h1 className="text-xl font-bold text-white text-center mt-2">{movie.title}</h1>
+                    <p className="text-lg">
+                      {movie.release_date}{" "}
                     </p>
                     <p className="mt-2">
-                      Nota Média de Avaliações: {movie.vote_average}{" "}
+                      Notas: {movie.vote_average}{" "}
                     </p>
                   </div>
                 </Link>
@@ -58,8 +55,8 @@ const MovieList = () => {
             </div>
           ))
         ) : (
-          <p className="text-xl col-span-3 mt-4 text-center dark:text-white">
-            Nenhum Filme Encontrado 😔{" "}
+          <p className="text-lg col-span-5 text-center text-rose-500 font-bold">
+            Nenhum Filme Encontrado{" "}
           </p>
         )}
       </div>
